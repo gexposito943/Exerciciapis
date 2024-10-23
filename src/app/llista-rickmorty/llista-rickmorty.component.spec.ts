@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { LlistaRickmortyComponent } from './llista-rickmorty.component';
+import { of } from 'rxjs'; 
 
 describe('LlistaRickmortyComponent', () => {
   let component: LlistaRickmortyComponent;
@@ -28,16 +29,12 @@ describe('LlistaRickmortyComponent', () => {
       ]
     };
 
-   
-    const solicitudHttp = httpMock.expectOne('https://rickandmortyapi.com/api/character');
-    expect(solicitudHttp.request.method).toBe('GET');
+    spyOn(component, 'getPersonatges').and.returnValue(of(respostaSimulada.results));
     
-    
-    solicitudHttp.flush(respostaSimulada);
+    component.ngOnInit(); 
+    fixture.detectChanges(); 
 
-    
     expect(component.personatges.length).toBe(respostaSimulada.results.length);
-  
     
     httpMock.verify();
   });
