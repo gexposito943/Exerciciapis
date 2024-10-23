@@ -12,15 +12,11 @@ export class LlistaRickmortyComponent implements OnInit {
 
   private apiUrl = 'https://rickandmortyapi.com/api/character';
 
-  constructor(private http: HttpClient) {}
-
-  ngOnInit(): void {
-    this.carregaPersonatges();
+  constructor(private http: HttpClient) {
+    
   }
 
-  carregaPersonatges(): void {
-    this.http.get<any>(this.apiUrl).subscribe(data => {
-      this.personatges = data.results;
-    });
+  ngOnInit(): void {
+    
   }
 }
