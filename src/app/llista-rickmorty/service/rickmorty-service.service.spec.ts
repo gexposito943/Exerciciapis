@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
-import { RickmortyServiceService } from './rickmorty-service.service';
+import { RickmortyService } from './rickmorty-service.service';
 import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('RickmortyServiceService', () => {
-  let service: RickmortyServiceService;
+describe('RickmortyService', () => {
+  let service: RickmortyService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [RickmortyServiceService]
+      providers: [RickmortyService]
     });
-    service = TestBed.inject(RickmortyServiceService);
+    service = TestBed.inject(RickmortyService);
   });
   
   it('hauria de carregar tots els personatges', () => {
@@ -29,5 +29,5 @@ describe('RickmortyServiceService', () => {
       expect(data.length).toBe(respostaSimulada.results.length); 
     });
   });
-    
+  
 });
