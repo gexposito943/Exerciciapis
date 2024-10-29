@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RickmortyService } from '../llista-rickmorty/service/rickmorty-service.service'; 
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-llista-rickmorty',
+  standalone: true,
+  imports: [NgFor],
   templateUrl: './llista-rickmorty.component.html',
   styleUrls: ['./llista-rickmorty.component.css']
 })
