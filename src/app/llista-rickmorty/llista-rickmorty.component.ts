@@ -22,8 +22,8 @@ export class LlistaRickmortyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.rickmortyService.getPersonatges().subscribe(data => {
-      this.personatges = data;
+    this.rickmortyService.getPersonatges().subscribe(response => {
+      this.personatges = response.results;
     });
   }
 }
